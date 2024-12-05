@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: kafka-broadcast
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: group-id-unique-to-each-consumer
+      auto-offset-reset: earliest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer-properties:
+      enable.auto.commit: true
+
+kafka:
+  topic:
+    name: broadcast
+  group:
+    id1: group-id-1
+    id2: group-id-2
+    id3: group-id-3
+server:
+  port: 8080
